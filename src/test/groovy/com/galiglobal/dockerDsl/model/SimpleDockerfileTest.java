@@ -1,7 +1,6 @@
 package com.galiglobal.dockerDsl.model;
 
-import com.galiglobal.dockerDsl.model.export.DockerfilePrinter;
-import com.galiglobal.dockerDsl.model.model.Dockerfile;
+import com.galiglobal.dockerDsl.export.DockerfilePrinter;
 import org.junit.Assert;
 import org.junit.Test;
 

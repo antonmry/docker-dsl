@@ -1,7 +1,6 @@
-package com.galiglobal.dockerDsl.model.model
+package com.galiglobal.dockerDsl.model
 
-
-import com.galiglobal.dockerDsl.model.export.DockerfilePrinter
+import com.galiglobal.dockerDsl.export.DockerfilePrinter
 import groovy.transform.CompileStatic
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -28,10 +27,9 @@ class SimpleDockerfileSpec extends Specification {
 
     @CompileStatic
     private static Dockerfile buildDockerfile() {
-/*        Dockerfile.build { Dockerfile d ->
+        Dockerfile.build { Dockerfile d ->
             FROM('ubuntu', '14.04')
             RUN('echo "Hello world" > /tmp/hello_world.txt')
-        }*/
-        return new Dockerfile()
+        }
     }
 }

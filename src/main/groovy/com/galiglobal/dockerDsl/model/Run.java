@@ -1,4 +1,4 @@
-package com.galiglobal.dockerDsl.model.model;
+package com.galiglobal.dockerDsl.model;
 
 import java.util.Objects;
 
