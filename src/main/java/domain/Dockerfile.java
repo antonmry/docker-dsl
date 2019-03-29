@@ -11,37 +11,37 @@ public class Dockerfile {
         return diagram;
     }
 
-    private From fromKeyword;
-    private Run runKeyword;
+    private From from;
+    private Run run;
 
     public From FROM(String origin, String version) {
         From f = new From(origin, version);
-        this.fromKeyword = f;
+        this.from = f;
         return f;
     }
 
     public Run RUN(String command) {
         Run r = new Run(command);
-        this.runKeyword = r;
+        this.run = r;
         return r;
     }
 
     // Getters, setters, etc.
 
-    public From getFromKeyword() {
-        return fromKeyword;
+    public From getFrom() {
+        return from;
     }
 
-    public void setFromKeyword(From fromKeyword) {
-        this.fromKeyword = fromKeyword;
+    public void setFrom(From from) {
+        this.from = from;
     }
 
-    public Run getRunKeyword() {
-        return runKeyword;
+    public Run getRun() {
+        return run;
     }
 
-    public void setRunKeyword(Run runKeyword) {
-        this.runKeyword = runKeyword;
+    public void setRun(Run run) {
+        this.run = run;
     }
 
     @Override
@@ -49,20 +49,20 @@ public class Dockerfile {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dockerfile that = (Dockerfile) o;
-        return Objects.equals(fromKeyword, that.fromKeyword) &&
-                Objects.equals(runKeyword, that.runKeyword);
+        return Objects.equals(from, that.from) &&
+                Objects.equals(run, that.run);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fromKeyword, runKeyword);
+        return Objects.hash(from, run);
     }
 
     @Override
     public String toString() {
         return "Dockerfile{" +
-                "fromKeyword=" + fromKeyword +
-                ", runKeyword=" + runKeyword +
+                "from=" + from +
+                ", run=" + run +
                 '}';
     }
 }

@@ -15,7 +15,7 @@ class SimpleDockerfileSpec extends Specification {
     def "basic Dockerfile"() {
 
         given:
-        DockerfilePrpowertop --auto-tuneinter printer = new DockerfilePrinter()
+        DockerfilePrinter printer = new DockerfilePrinter()
         expect:
         printer.print(dockerfile).trim() == expected
 
