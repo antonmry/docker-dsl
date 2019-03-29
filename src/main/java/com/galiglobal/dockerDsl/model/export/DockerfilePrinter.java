@@ -1,8 +1,8 @@
-package export;
+package com.galiglobal.dockerDsl.model.export;
 
-import domain.Dockerfile;
-import domain.From;
-import domain.Run;
+import com.galiglobal.dockerDsl.model.model.Dockerfile;
+import com.galiglobal.dockerDsl.model.model.From;
+import com.galiglobal.dockerDsl.model.model.Run;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

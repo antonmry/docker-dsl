@@ -1,0 +1,3 @@
+moduleName=docker-dsl-extra
+moduleVersion=0.1.0
+staticExtensionClasses=com.galiglobal.dockerDsl.groovy.DockerfileStaticExtensions

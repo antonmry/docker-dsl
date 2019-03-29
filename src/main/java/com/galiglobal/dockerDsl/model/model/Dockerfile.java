@@ -1,14 +1,14 @@
-package domain;
+package com.galiglobal.dockerDsl.model.model;
 
 import java.util.Objects;
 import java.util.function.Consumer;
 
 public class Dockerfile {
 
-    public static Dockerfile create(Consumer<Dockerfile> diagramConsumer) {
-        Dockerfile diagram = new Dockerfile();
-        diagramConsumer.accept(diagram);
-        return diagram;
+    public static Dockerfile create(Consumer<Dockerfile> dockerfileConsumer) {
+        Dockerfile dockerfile = new Dockerfile();
+        dockerfileConsumer.accept(dockerfile);
+        return dockerfile;
     }
 
     private From from;
@@ -32,16 +32,8 @@ public class Dockerfile {
         return from;
     }
 
-    public void setFrom(From from) {
-        this.from = from;
-    }
-
     public Run getRun() {
         return run;
-    }
-
-    public void setRun(Run run) {
-        this.run = run;
     }
 
     @Override
