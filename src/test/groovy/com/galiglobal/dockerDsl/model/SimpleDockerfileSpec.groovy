@@ -27,7 +27,7 @@ class SimpleDockerfileSpec extends Specification {
 
     @CompileStatic
     private static Dockerfile buildDockerfile() {
-        Dockerfile.build { Dockerfile d ->
+        Dockerfile.build { DockerfileDefinition d ->
             FROM('ubuntu', '14.04')
             RUN('echo "Hello world" > /tmp/hello_world.txt')
         }
