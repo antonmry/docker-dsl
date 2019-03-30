@@ -1,6 +1,7 @@
 package com.galiglobal.dockerDsl.model
 
 import com.galiglobal.dockerDsl.export.DockerfilePrinter
+import com.galiglobal.dockerDsl.export.FileDockerfilePrinter
 import groovy.transform.CompileStatic
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -16,7 +17,7 @@ class SimpleDockerfileSpec extends Specification {
     def "basic Dockerfile"() {
 
         given:
-        DockerfilePrinter printer = new DockerfilePrinter()
+        DockerfilePrinter printer = new FileDockerfilePrinter()
         expect:
         printer.print(dockerfile).trim() == expected
 

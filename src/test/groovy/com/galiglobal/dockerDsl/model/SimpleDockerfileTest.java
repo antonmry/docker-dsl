@@ -1,6 +1,7 @@
 package com.galiglobal.dockerDsl.model;
 
 import com.galiglobal.dockerDsl.export.DockerfilePrinter;
+import com.galiglobal.dockerDsl.export.FileDockerfilePrinter;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,7 +13,7 @@ public class SimpleDockerfileTest {
 
     @Test
     public void testDockerfileJava() {
-        DockerfilePrinter printer = new DockerfilePrinter();
+        DockerfilePrinter printer = new FileDockerfilePrinter();
         Dockerfile dockerfile = buildDockerfile();
         Assert.assertEquals(EXPECTED_DOCKERFILE, printer.print(dockerfile));
     }
