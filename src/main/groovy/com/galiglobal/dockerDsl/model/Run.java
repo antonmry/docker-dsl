@@ -14,10 +14,6 @@ public class Run {
         return command;
     }
 
-    public void setCommand(String command) {
-        this.command = command;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
