@@ -1,5 +1,8 @@
 package com.galiglobal.dockerDsl.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Objects;
 import java.util.function.Consumer;
 
@@ -11,38 +14,40 @@ public class Dockerfile implements DockerfileDefinition {
         return dockerfile;
     }
 
-    private From from;
-    private Run run;
+    private Collection<Line> lines = new ArrayList<>();
 
     @Override
     public From FROM(String origin, String version) {
         From f = new From(origin, version);
-        this.from = f;
+        lines.add(f);
         return f;
     }
 
     @Override
     public From FROM(String origin) {
         From f = new From(origin);
-        this.from = f;
+        lines.add(f);
         return f;
     }
 
     @Override
     public Run RUN(String command) {
         Run r = new Run(command);
-        this.run = r;
+        lines.add(r);
         return r;
+    }
+
+    @Override
+    public Comment COMMENT(String text) {
+        Comment c = new Comment(text);
+        lines.add(c);
+        return c;
     }
 
     // Getters, setters, etc.
 
-    public From getFrom() {
-        return from;
-    }
-
-    public Run getRun() {
-        return run;
+    public Collection<Line> getLines() {
+        return Collections.unmodifiableCollection(lines);
     }
 
     @Override
@@ -50,20 +55,18 @@ public class Dockerfile implements DockerfileDefinition {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dockerfile that = (Dockerfile) o;
-        return Objects.equals(from, that.from) &&
-                Objects.equals(run, that.run);
+        return Objects.equals(lines, that.lines);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(from, run);
+        return Objects.hash(lines);
     }
 
     @Override
     public String toString() {
         return "Dockerfile{" +
-                "from=" + from +
-                ", run=" + run +
+                "lines=" + lines +
                 '}';
     }
 }

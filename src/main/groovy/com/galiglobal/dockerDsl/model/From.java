@@ -2,7 +2,7 @@ package com.galiglobal.dockerDsl.model;
 
 import java.util.Objects;
 
-public class From {
+public class From extends Line {
 
     private String origin;
     private String version;

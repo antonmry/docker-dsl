@@ -9,7 +9,9 @@ import spock.lang.Unroll
 class SimpleDockerfileSpec extends Specification {
 
     private static final String EXPECTED_DOCKERFILE = '''
+        # Comment 1
         FROM ubuntu:14.04
+        # Comment 2
         RUN echo "Hello world" > /tmp/hello_world.txt
     '''.stripIndent().trim()
 
@@ -29,7 +31,9 @@ class SimpleDockerfileSpec extends Specification {
     @CompileStatic
     private static Dockerfile buildDockerfile() {
         Dockerfile.build { DockerfileDefinition d ->
+            COMMENT(' Comment 1')
             FROM('ubuntu', '14.04')
+            COMMENT(' Comment 2')
             RUN('echo "Hello world" > /tmp/hello_world.txt')
         }
     }

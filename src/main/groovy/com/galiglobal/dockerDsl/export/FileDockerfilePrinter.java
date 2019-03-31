@@ -1,8 +1,6 @@
 package com.galiglobal.dockerDsl.export;
 
-import com.galiglobal.dockerDsl.model.From;
-import com.galiglobal.dockerDsl.model.Run;
-import com.galiglobal.dockerDsl.model.Dockerfile;
+import com.galiglobal.dockerDsl.model.*;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -14,8 +12,22 @@ public class FileDockerfilePrinter implements DockerfilePrinter {
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
 
-        printWriter.println(print(dockerfile.getFrom()));
-        printWriter.println(print(dockerfile.getRun()));
+        for (Line line : dockerfile.getLines()) {
+
+            // TODO: find a way to avoid type inspection
+            TypeOfLine t = TypeOfLine.valueOf(line.getClass().getSimpleName());
+            switch (t) {
+                case From:
+                    printWriter.println(print((From) line));
+                    break;
+                case Run:
+                    printWriter.println(print((Run) line));
+                    break;
+                case Comment:
+                    printWriter.println(print((Comment) line));
+                    break;
+            }
+        }
 
         return stringWriter.toString();
     }
@@ -27,4 +39,13 @@ public class FileDockerfilePrinter implements DockerfilePrinter {
     private String print(Run r) {
         return String.format("RUN %s", r.getCommand());
     }
+
+    private String print(Comment c) {
+        return String.format("#%s", c.getText());
+    }
 }
+
+enum TypeOfLine{
+    From, Run, Comment;
+}
+

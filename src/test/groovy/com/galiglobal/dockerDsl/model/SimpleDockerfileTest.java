@@ -8,7 +8,7 @@ import org.junit.Test;
 public class SimpleDockerfileTest {
 
     private static final String EXPECTED_DOCKERFILE =
-            "FROM ubuntu:14.04\nRUN echo \"Hello world\" > /tmp/hello_world.txt\n";
+            "# Comment 1\nFROM ubuntu:14.04\n# Comment 2\nRUN echo \"Hello world\" > /tmp/hello_world.txt\n";
 
 
     @Test
@@ -20,7 +20,9 @@ public class SimpleDockerfileTest {
 
     private Dockerfile buildDockerfile() {
         return Dockerfile.create(d -> {
+                    d.COMMENT(" Comment 1");
                     d.FROM("ubuntu", "14.04");
+                    d.COMMENT(" Comment 2");
                     d.RUN("echo \"Hello world\" > /tmp/hello_world.txt");
                 }
         );

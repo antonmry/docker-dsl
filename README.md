@@ -6,13 +6,15 @@ A JVM-based language DSL for Dockerfiles.
 
 ## TODO
 
-- [ ] Add comments and other keywords
+- [ ] Add more keywords
+- [ ] Check if it's possible to use # in the Groovy DSL
 - [ ] Add JavaDoc
 - [ ] Add CLI
 - [ ] Add Kotlin support
 - [ ] Improve doc.
 - [ ] Add gradle plugin
 - [ ] Add maven plugin
+- [ ] Macro test reading official Dockerfiles
 
 ## Credits
 

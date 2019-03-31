@@ -2,7 +2,7 @@ package com.galiglobal.dockerDsl.model;
 
 import java.util.Objects;
 
-public class Run {
+public class Run extends Line {
 
     private String command;
 
